@@ -153,27 +153,31 @@ export function HoverElement({
 interface Card3DProps {
   children: ReactNode;
   className?: string;
-  depth?: number;
+  // depth prop is removed as the 3D z-transform is removed
 }
 
 export function Card3D({ 
   children, 
-  className = "",
-  depth = 30
+  className = ""
+  // depth = 30 // No longer used
 }: Card3DProps) {
   return (
     <motion.div
-      className={`${className} perspective-1000`}
-      initial={{ rotateX: 5, rotateY: 0 }}
+      className={`${className}`} // perspective-1000 removed
+      initial={{ 
+        scale: 1, 
+        y: 0, 
+        boxShadow: "0px 5px 15px rgba(0,0,0,0.08)" // Default subtle shadow
+      }}
       whileHover={{ 
-        rotateX: 0, 
-        rotateY: 5, 
-        z: depth,
-        transition: { duration: 0.3 }
+        scale: 1.03, 
+        y: -5,       // Slight lift
+        boxShadow: "0px 12px 25px rgba(0,0,0,0.12)", // Enhanced shadow on hover
+        transition: { duration: 0.2, ease: "circOut" }
       }}
       style={{ 
-        transformStyle: "preserve-3d",
-        transformOrigin: "center center"
+        transformOrigin: "center center" // Keep for scale transform
+        // transformStyle: "preserve-3d" removed
       }}
     >
       {children}
@@ -185,18 +189,23 @@ export function Card3D({
 interface ParallaxSectionProps {
   children: ReactNode;
   className?: string;
-  baseVelocity?: number;
+  // baseVelocity prop removed as it was unused
   depth?: number;
+  scrollYProgress?: MotionValue<number>; // Allow passing scrollYProgress
 }
 
 export function ParallaxSection({ 
   children, 
   className = "",
-  baseVelocity = 0.05,
-  depth = 100
+  // baseVelocity = 0.05, // Removed
+  depth = 100,
+  scrollYProgress // Accept as a prop
 }: ParallaxSectionProps) {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, depth]);
+  // Use provided scrollYProgress or create an internal one if not provided
+  const internalScrollHook = useScroll(); // Renamed to avoid conflict
+  const effectiveScrollYProgress = scrollYProgress || internalScrollHook.scrollYProgress;
+  
+  const y = useTransform(effectiveScrollYProgress, [0, 1], [0, depth]);
   
   return (
     <motion.div
