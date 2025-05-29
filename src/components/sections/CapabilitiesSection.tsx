@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { AnimatedElement, Card3D, ParallaxSection, Tilt3D } from '../../lib/animations';
+import { AnimatedElement, Card3D, ParallaxSection } from '../../lib/animations'; // Tilt3D removed
 
 const capabilities = [
   {
@@ -44,7 +44,7 @@ export default function CapabilitiesSection() {
   return (
     <section id="capabilities" className="min-h-screen w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
       {/* Enhanced 3D background elements */}
-      <ParallaxSection baseVelocity={0.05} depth={200} className="absolute inset-0">
+      <ParallaxSection depth={200} className="absolute inset-0"> {/* baseVelocity prop removed */}
         <motion.div 
           className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full opacity-30 blur-3xl"
           style={{ 
@@ -102,7 +102,7 @@ export default function CapabilitiesSection() {
               key={index}
               delay={0.1 * index}
             >
-              <Card3D depth={40}>
+              <Card3D> {/* depth prop removed */}
                 <div className="bg-white p-6 rounded-lg border border-neutral-100 shadow-md hover:shadow-xl transition-all duration-300 h-full">
                   <div className="flex items-start mb-4">
                     <div className="flex-shrink-0">

@@ -221,13 +221,13 @@ export function ParallaxSection({
 interface Tilt3DProps {
   children: ReactNode;
   className?: string;
-  tiltFactor?: number;
+  // tiltFactor prop removed as it was unused
 }
 
 export function Tilt3D({ 
   children, 
-  className = "",
-  tiltFactor = 15
+  className = ""
+  // tiltFactor = 15 // Removed
 }: Tilt3DProps) {
   return (
     <motion.div

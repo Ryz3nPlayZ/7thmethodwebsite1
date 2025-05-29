@@ -51,7 +51,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="min-h-screen w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
       {/* Enhanced 3D animated background elements */}
-      <ParallaxSection baseVelocity={0.15} depth={400} className="absolute inset-0">
+      <ParallaxSection depth={400} className="absolute inset-0"> {/* baseVelocity prop removed */}
         <motion.div 
           className="absolute top-1/3 left-0 w-96 h-96 bg-blue-100 rounded-full opacity-30 blur-3xl"
           style={{ 
@@ -104,7 +104,7 @@ export default function ContactSection() {
         
         {/* Enhanced 3D contact form with glass morphism */}
         <AnimatedElement delay={0.3} className="max-w-2xl mx-auto">
-          <Card3D depth={50}>
+          <Card3D> {/* depth prop removed */}
             <div className="backdrop-blur-sm bg-white/90 rounded-lg border border-white/20 shadow-xl p-8">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit}>

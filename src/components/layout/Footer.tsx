@@ -1,6 +1,6 @@
 import { Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { AnimatedElement, Tilt3D } from '../../lib/animations';
+import { AnimatedElement } from '../../lib/animations'; // Tilt3D removed
 
 export default function Footer() {
   return (

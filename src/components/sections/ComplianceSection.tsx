@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { AnimatedElement, Card3D, ParallaxSection, Tilt3D } from '../../lib/animations';
+import { AnimatedElement, Card3D, ParallaxSection } from '../../lib/animations'; // Tilt3D removed
 import { ShieldCheck, FileCheck, Layers } from 'lucide-react';
 
 const complianceFeatures = [
@@ -33,7 +33,7 @@ export default function ComplianceSection() {
   return (
     <section id="compliance" className="min-h-screen w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
       {/* Enhanced 3D animated background elements */}
-      <ParallaxSection baseVelocity={0.08} depth={250} className="absolute inset-0">
+      <ParallaxSection depth={250} className="absolute inset-0"> {/* baseVelocity prop removed */}
         <motion.div 
           className="absolute top-0 left-1/4 w-64 h-64 bg-blue-200 rounded-full opacity-20 blur-3xl"
           animate={{
@@ -112,7 +112,7 @@ export default function ComplianceSection() {
               key={index}
               delay={0.2 * index}
             >
-              <Card3D depth={50}>
+              <Card3D> {/* depth prop removed */}
                 <div className="backdrop-blur-sm bg-white/90 p-8 rounded-lg border border-white/20 shadow-lg text-center h-full">
                   <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r ${feature.color} text-white mb-6 shadow-lg opacity-80`}>
                     {feature.icon}

@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion'; // React import removed
 import { AnimatedElement, ParallaxSection } from '../lib/animations';
 import Layout from '../components/layout/Layout';
 
@@ -11,7 +10,7 @@ export default function TermsOfService() {
     <Layout>
       <section className="min-h-screen w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
         {/* Subtle background elements */}
-        <ParallaxSection baseVelocity={0.05} depth={100} className="absolute inset-0">
+        <ParallaxSection depth={100} className="absolute inset-0"> {/* baseVelocity prop removed */}
           <motion.div 
             className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full opacity-50 blur-3xl"
             style={{ 

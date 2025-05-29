@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { AnimatedElement, Card3D, ParallaxSection, Tilt3D } from '../../lib/animations';
+import { AnimatedElement, Card3D, ParallaxSection } from '../../lib/animations'; // Tilt3D removed
 
 export default function AboutSection() {
   const { scrollYProgress } = useScroll();
@@ -11,7 +11,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="min-h-screen w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
       {/* Enhanced 3D animated background elements */}
-      <ParallaxSection baseVelocity={0.12} depth={350} className="absolute inset-0">
+      <ParallaxSection depth={350} className="absolute inset-0"> {/* baseVelocity prop removed */}
         <motion.div 
           className="absolute top-1/4 right-0 w-80 h-80 bg-blue-100 rounded-full opacity-30 blur-3xl"
           style={{ 
@@ -72,7 +72,7 @@ export default function AboutSection() {
           
           {/* Enhanced 3D abstract visualization */}
           <AnimatedElement delay={0.3}>
-            <Card3D depth={60}>
+            <Card3D> {/* depth prop removed */}
               <motion.div 
                 className="relative h-96 w-full rounded-xl overflow-hidden shadow-2xl"
                 style={{

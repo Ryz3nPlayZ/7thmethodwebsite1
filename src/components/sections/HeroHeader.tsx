@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { AnimatedElement, Card3D, ParallaxSection, Tilt3D } from '../../lib/animations';
+import { AnimatedElement, Tilt3D } from '../../lib/animations'; // Card3D and ParallaxSection removed
 import { ArrowRight } from 'lucide-react';
 
 export default function HeroHeader() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion'; // Removed useScroll, useTransform
 import Layout from './components/layout/Layout';
 import HeroHeader from './components/sections/HeroHeader';
 import CapabilitiesSection from './components/sections/CapabilitiesSection';
@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TermsOfService from './pages/TermsOfService';
 
 function App() {
-  const { scrollYProgress } = useScroll();
+  // const { scrollYProgress } = useScroll(); // Removed unused scrollYProgress
   
   // Enhanced 3D floating cursor effect
   const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });

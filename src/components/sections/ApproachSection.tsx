@@ -155,7 +155,7 @@ export default function ApproachSection() {
                   
                   {/* Empty space for timeline alignment */}
                   <div className={`hidden md:block md:col-span-1 ${!isEven && 'md:order-1'}`}></div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
